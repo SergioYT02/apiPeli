@@ -1,0 +1,61 @@
+/* Ajustes generales */
+ion-content {
+    background-color: #f4f4f4; /* Color de fondo */
+  }
+  
+  /* Contenedor principal de detalles de película */
+  .movie-details {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+  }
+  
+  /* Imagen del póster */
+  .movie-details img {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 20px;
+  }
+  
+  /* Detalles de la película */
+  .details {
+    background-color: #ffffff25;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 600px;
+    text-align: left;
+  }
+  
+  /* Etiquetas de detalles */
+  ion-label {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 14px;
+  }
+  
+  /* Título de la sinopsis */
+  .overview ion-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  /* Sinopsis */
+  .overview ion-label {
+    font-size: 14px;
+    line-height: 1.5;
+  }
+  
+  /* Estilo para el botón de retroceso */
+  ion-back-button {
+    --background: #007bff; /* Color del botón de retroceso */
+    --color: #fff; /* Color del texto del botón de retroceso */
+  }
+  
+
+  

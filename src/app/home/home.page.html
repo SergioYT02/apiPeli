@@ -1,20 +1,36 @@
-<ion-header [translucent]="true">
+<!-- movie-list.page.html -->
+
+<ion-header>
   <ion-toolbar>
     <ion-title>
-      Blank
+      Lista de Películas
     </ion-title>
   </ion-toolbar>
 </ion-header>
-
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+<ion-content class="ion-padding">
+  <div class="movies-container">
+    <ion-card *ngFor="let movieU of moviesP" (click)="onMovieClick(movieU.id)">
+      <img [src]="'https://image.tmdb.org/t/p/original/&#39; + movieU.poster_path" alt="{{ movieU.title }} Portada">
+    </ion-card>
   </div>
+  
+<ion-content class="ion-padding">
+  <ion-grid>
+    <ion-row>
+      <ion-col size="6" *ngFor="let movie of movies" (click)="onMovieClick(movie.id)">
+        <ion-card>
+          <ion-img [src]="'https://image.tmdb.org/t/p/original' + movie.poster_path"></ion-img>
+          <ion-card-header>
+            <ion-card>{{ movie.title }}</ion-card>
+          </ion-card-header>
+          <ion-card-content>
+            <p>Ranking: {{ movie.vote_average }}</p>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-infinite-scroll (ionInfinite)="onIonInfinite($event)">
+    <ion-infinite-scroll-content></ion-infinite-scroll-content>
+  </ion-infinite-scroll>
 </ion-content>

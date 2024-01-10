@@ -1,0 +1,48 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{ movieDetails?.original_title }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content *ngIf="movieDetails">
+  <div class="movie-details">
+  
+    <img [src]="'https://image.tmdb.org/t/p/w300' + movieDetails.poster_path" alt="Poster">
+
+    <div class="details">
+      <ion-label>Titulo: {{ movieDetails?.original_title }}</ion-label>
+      <ion-label class="genre" *ngFor="let genre of movieDetails.genres">Genero:{{ genre.name }}</ion-label>
+      <ion-label>{{ movieDetails.tagline }}</ion-label>
+      <ion-label>Presupuesto: ${{ movieDetails.budget | number }}</ion-label>
+      <ion-label>Estado: {{ movieDetails.status }}</ion-label>
+      <ion-label>Calificación Promedio: {{ movieDetails.vote_average }}</ion-label>
+      <ion-label>Votos: {{ movieDetails.vote_count }}</ion-label>
+      <ion-label>Adulto: {{ movieDetails.adult ? 'Sí' : 'No' }}</ion-label>
+      <ion-label>Fecha de Lanzamiento: {{ movieDetails.release_date }}</ion-label>
+
+      <div class="overview">
+        <ion-label>Sinopsis:</ion-label>
+        <ion-label>{{ movieDetails.overview }}</ion-label>
+      </div>
+    </div>
+  </div>
+  <ion-content *ngIf="movieDetails && castDetails">
+    <!-- Otras secciones de detalles de la película -->
+    <div class="cast-section">
+      <ion-title>Elenco</ion-title>
+      <ion-list>
+        <ion-item *ngFor="let actor of castDetails">
+          <ion-avatar slot="start">
+            <img [src]="'https://image.tmdb.org/t/p/w185' + actor.profile_path" alt="Actor">
+          </ion-avatar>
+          <ion-label>{{ actor.name }}</ion-label>
+          <ion-label>{{ actor.character }}</ion-label>
+        </ion-item>
+      </ion-list>
+    </div>
+  </ion-content>
+</ion-content>
+
